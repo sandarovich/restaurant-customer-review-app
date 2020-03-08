@@ -20,7 +20,7 @@
                  ; Database
                  [com.layerware/hugsql "0.5.1"]
                  [org.postgresql/postgresql "42.2.10"]
-                 [hikari-cp "2.8.0"]
+                 [hikari-cp "2.10.0"]
                  [org.flywaydb/flyway-core "5.2.4"]]
 
   ;:main ^:skip-aot restaurant-customer-review-app.core

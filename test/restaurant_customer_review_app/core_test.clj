@@ -5,3 +5,6 @@
 (deftest a-test
   (testing "FIXED. Not failing any more"
     (is 1 (= 0 1))))
+
+;TODO Look as inspiration for further h2 test
+;https://stackoverflow.com/questions/51613637/cannot-create-connection-pool-with-hikari-cp
