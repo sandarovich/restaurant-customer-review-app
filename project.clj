@@ -14,17 +14,19 @@
                  [mount "0.1.16"]
 
                  ; Web
+                 [prismatic/schema "1.1.9"]
+                 [http-kit "2.3.0"]
                  [ring "1.8.0"]
+                 [ring/ring-defaults "0.3.2"]
+                 [ring/ring-json "0.5.0"]
                  [compojure "1.6.1"]
 
                  ; Database
                  [com.layerware/hugsql "0.5.1"]
                  [org.postgresql/postgresql "42.2.10"]
-                 [hikari-cp "2.8.0"]
+                 [hikari-cp "2.10.0"]
                  [org.flywaydb/flyway-core "5.2.4"]]
-
-  ;:main ^:skip-aot restaurant-customer-review-app.core
-  :main start-app
+  :main user
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
              :dev {:source-paths ["dev"]

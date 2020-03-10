@@ -8,7 +8,7 @@ This helps to build a database of reviews which further can be analysed to unloc
 
 ## Installation
 
-Download from https://github.com/sandarovich/restaurant-customer-review-app
+    $  git clone https://github.com/sandarovich/restaurant-customer-review-app
 
 ## Usage
 ### Prerequisites
@@ -18,7 +18,7 @@ Download from https://github.com/sandarovich/restaurant-customer-review-app
     $ docker-compose -f docker/docker-compose.yml up
     
     
-   wait for it to initialize completely, and visit http://localhost:8080 
+   wait for it to initialize completely, and visit http://localhost:8080 for UI Db tool 
    user: postgres,  password: postgres
     
 2. Please install on your environment build tool[Leiningen](https://leiningen.org/#install)
@@ -27,31 +27,51 @@ Download from https://github.com/sandarovich/restaurant-customer-review-app
     $ lein with-profile dev run
 
 
-## Options
-
-FIXME: listing of options this app accepts.
-
 ## Examples
 
-...
+With curl (assuming your app runs on port 3000):
 
-### Bugs
+1. POST /feedback  (submit customer review with payload which contains review text, 5 stars score and identifier of the customer)
 
-...
+```bash
+curl -X POST \
+  http://127.0.0.1:3000/feedback \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{
+	"review_text": "Test",
+	"score" : 2,
+	"customer_id": 3
+}'
+```
+Response:
+``` status 201```
 
-### Troubleshooting
+2. GET /occurrences?word= (retrieve the number of occurrences for specific word, which helps to understand the popularity)
+```bash
+curl -X GET \
+  'http://127.0.0.1:3000/occurrences?word=Excellent' \
+  -H 'cache-control: no-cache' \'
+```
+Response:
+```
+{
+    "find_all_occurrencies_in_review": 1
+}
+```
+3. GET /health (return the overall business health of the restaurant using average score by reviews)
 
-1. In case of docker-compose issue, please execute on linux environment:
-
-
-    $  export DOCKER_HOST=127.0.0.1
-    
-    sudo netstat -ntlp | grep LISTEN
-
-
-
-### That You Think
-### Might be Useful
+```bash
+curl -X GET \
+  http://127.0.0.1:3000/health \
+  -H 'cache-control: no-cache' \
+```
+Response:
+```
+{
+    "health_score": 2.6
+}
+```   
 
 ## License
 
