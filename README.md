@@ -7,26 +7,24 @@ This helps to build a database of reviews which further can be analysed to unloc
 
 
 ## Installation
-
-    $  git clone https://github.com/sandarovich/restaurant-customer-review-app
-
+```bash
+    git clone https://github.com/sandarovich/restaurant-customer-review-app
+```
 ## Usage
 ### Prerequisites
 1. Install latest Docker an Docker-compose on your environment to be able to run Postgress docker image.
-
-
-    $ docker-compose -f docker/docker-compose.yml up
-    
+```bash
+ docker-compose -f docker/docker-compose.yml up
+ ```
     
    wait for it to initialize completely, and visit http://localhost:8080 for UI Db tool 
    user: postgres,  password: postgres
     
-2. Please install on your environment build tool[Leiningen](https://leiningen.org/#install)
-
-
-    $ lein with-profile dev run
-
-
+2. Please install on your environment build tool [Leiningen](https://leiningen.org/#install)
+3. Run
+```bash
+    lein with-profile dev run
+```
 ## Examples
 
 With curl (assuming your app runs on port 3000):
